@@ -23,5 +23,4 @@ classDiagram
     }
     BebidaQuente <|-- Cafe
     BebidaQuente <|-- Cha
-    note for BebidaQuente "preparar() é final e define a sequência.\nMétodos com * são abstratos.\ndesejaComplementos() é o hook."
 ```
