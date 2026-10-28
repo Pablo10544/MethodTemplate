@@ -1,0 +1,38 @@
+@startuml
+title Template Method - Preparo de bebidas quentes
+skinparam classAttributeIconSize 0
+
+abstract class BebidaQuente {
+    +preparar(): List<String> {leaf}
+    -ferverAgua(): String
+    {abstract} #prepararIngrediente(): String
+    -servirNaXicara(): String
+    {abstract} #adicionarComplementos(): String
+    #desejaComplementos(): boolean
+}
+
+class Cafe {
+    #prepararIngrediente(): String
+    #adicionarComplementos(): String
+}
+
+class Cha {
+    -comLimao: boolean {readOnly}
+    +Cha(comLimao: boolean)
+    #prepararIngrediente(): String
+    #adicionarComplementos(): String
+    #desejaComplementos(): boolean
+}
+
+BebidaQuente <|-- Cafe
+BebidaQuente <|-- Cha
+
+note right of BebidaQuente
+  preparar() e final (leaf):
+  1. ferverAgua()
+  2. prepararIngrediente()
+  3. servirNaXicara()
+  4. adicionarComplementos(),
+     se desejaComplementos()
+end note
+@enduml
